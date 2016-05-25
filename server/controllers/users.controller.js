@@ -1,6 +1,7 @@
 'use strict';
 
-var User = require('..models/user.model.js');
+var User = require('../models/user.model.js');
+var ObjectId = require('mongodb').ObjectId; 
 
 exports.list = function(req, res) {
 	User.find(function(err, user) {
@@ -14,15 +15,12 @@ exports.list = function(req, res) {
 
 exports.create = function(req, res) {
 
-	console.log("Controller Create function")
-	console.log(req)
-
-	var user = new User({
+	var newUser = new User({
 		name: req.body.name,
 		challengesCompleted: []
 	})
 
-	user.save(function(err) {
+	newUser.save(function(err) {
 		if (err)
 			console.log(err);
 		console.log("New user created");
@@ -32,17 +30,19 @@ exports.create = function(req, res) {
 }
 
 exports.update = function(req, res) {
-	//figure out req params?
-	console.log("Controller update function")
-	console.log(req)
+	//need to add challenge number validation
+	var query = {"_id": ObjectId(req.body._id)}
+	var update = {$push: {"challengesCompleted": {"challenge" : req.body.challengeNumber}}}
+	console.log(update)
+	var options = {safe: true, upsert: true}
 
-	User.findByIdAndUpdate(function(err, user) {
-		user._id,
-		{$push: {"challenges": {"challenge" : challengeNumber}}},
-		{safe: true, upsert: true},
-    function(err, model) { //model??
-        console.log(err);
-    }
-	}
+	User.findByIdAndUpdate(query, update, options, function(err, user){
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("User updated")
+			console.log(user)
+		}
+	})
 
-)}
+}

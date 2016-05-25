@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-	var User = require('./models/user.model.js');
+	var User = require('./controllers/users.controller.js');
 	
 	app.route('/users')
 		.post(User.create)
