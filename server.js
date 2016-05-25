@@ -24,7 +24,13 @@ app.use(express.static(__dirname + '/public')); // set the static files location
 // routes ==================================================
 require('./server/routes')(app); // pass our application into our routes
 
-// models
+
+
+app.get('/', function(req, res, next) {
+	console.log("I'm in the home page!")
+  // response.sendFile(path.join(__dirname + '/public/index.html'));
+});
+
 
 
 
