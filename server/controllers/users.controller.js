@@ -24,9 +24,10 @@ exports.create = function(req, res) {
 		if (err)
 			console.log(err);
 		console.log("New user created");
+		res.send(newUser)
 	})
 
-	return "User created"
+
 }
 
 exports.update = function(req, res) {
