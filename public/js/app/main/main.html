@@ -1,13 +1,24 @@
 <div class="welcome text-center">
 	<h1>Learn Locations</h1>
 	<div>
-		<div user-form-submit></div>
+		<!-- <div user-form-submit></div> -->
+		<div ng-show="main.regUser">
+			<h3>Welcome {{main.regUser}}!</h3>
+			<h2>Let's get started!</h2>
+			<i class="circle-icon fa fa-angle-double-down fa-3x"></i>
+
+		</div>
 	</div>
-	<form class="new-user" ng-model="main.newUser" ng-submit="main.createUser()">
+	<form class="new-user" ng-model="main.newUser" ng-submit="main.createUser()" ng-hide="main.regUser">
 		<input class="form-control" ng-model="main.newUser.name" type="text">
 		<input class="btn btn-primary" type="submit" value="Start!">
 	</form>
 </div>
+
+
+
+
+
 
 <!-- line break -->
 <section>
