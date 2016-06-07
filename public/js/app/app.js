@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('eslLocations', ['ngRoute', 'ngResource'])
+angular.module('eslLocations', ['ngRoute', 'ngResource', 'ngAudio'])
     
     .config(['$routeProvider', function ($routeProvider) {
         console.log("I'm in app.js!")

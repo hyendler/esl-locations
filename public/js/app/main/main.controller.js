@@ -1,5 +1,5 @@
 angular.module('eslLocations')
-	.controller('mainController', ['$scope', 'UserFactory', '$http', function($scope, UserFactory, $http) {
+	.controller('mainController', ['$scope', 'UserFactory', '$http', 'ngAudio', function($scope, UserFactory, $http, ngAudio) {
 		console.log("I'm in the Angular mainController!");
 
 		var ctrl = this;
