@@ -1,0 +1,9 @@
+[
+	{
+		"id": 1,
+		"name": "pharmacy",
+		"description": "Location where you can get medications and household products",
+		"images": ["pharmacy1.jpg", "pharmacy2.jpg", "pharmacy3.jpg"],
+		"soundclip": "pharmacy_clip1.m4a"
+	}
+]
